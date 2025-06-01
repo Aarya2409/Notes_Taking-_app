@@ -1,4 +1,4 @@
-# 📝 Notes Taking App – Fullstack (PERN Stack)
+# 📝 Notes Taking App – Fullstack 
 
 A secure and fast **Note Taking App** built using **React**, **Node.js**, **Express**, and **PostgreSQL**. This fullstack app includes user authentication with JWT, protected routes, and a beautiful frontend UI with modern UX.
 

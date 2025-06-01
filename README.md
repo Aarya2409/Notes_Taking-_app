@@ -1,32 +1,45 @@
-# 📝 Note Taking App – Backend API
+# 📝 Notes Taking App – Fullstack (PERN Stack)
 
-A secure and extensible **Note-Taking REST API** built using **Node.js**, **Express**, **MongoDB (via Mongoose)**, and **JWT authentication**. This project is designed as a learning-level backend but follows clean architecture principles.
+A secure and fast **Note Taking App** built using **React**, **Node.js**, **Express**, and **PostgreSQL**. This fullstack app includes user authentication with JWT, protected routes, and a beautiful frontend UI with modern UX.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 User Registration & Login
-- 🧾 JWT Authentication (Access Token)
-- 🧠 Role-Based Access Control (RBAC)
-- 🗒️ Create, Read, Update, Delete Notes
-- 🚫 Protected Routes with Middleware
-- 🧪 Swagger API Documentation
-- 🌱 Modular Codebase ready for scaling
+### 🔧 Backend (Node.js + Express + PostgreSQL)
+- ✅ Register / Login with JWT auth
+- 🛡️ HTTP-only cookie-based token storage
+- 🗒️ CRUD operations on Notes (protected routes)
+- 📄 Swagger API docs (localhost:8000/api-docs)
+- 🧱 Sequelize ORM with PostgreSQL
+
+### 💻 Frontend (React + Vite)
+- 🔐 Auth flow (Register/Login)
+- 🗃️ View/Add/Edit/Delete personal notes
+- 🍪 Auth token managed via cookie
+- ⚠️ Handles error states and form validation
 
 ---
 
-## 📁 Folder Structure
+## 🗂️ Folder Structure
 
-src/
-├── config/ # DB & Swagger configs
-├── controllers/ # Auth & Note logic
-├── middleware/ # Auth & Role check middleware
-├── models/ # Mongoose schemas
-├── routes/ # Route definitions
-├── services/ # (Optional) Business logic layer
-├── utils/ # (Optional) Reusable helpers
-└── app.js # Entry point
+Notes_Taking-_app/
+├── backend/
+│ ├── src/
+│ │ ├── controllers/
+│ │ ├── models/
+│ │ ├── routes/
+│ │ ├── middleware/
+│ │ └── app.js
+│ ├── .env
+│ └── package.json
+├── frontend/
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ └── App.jsx
+│ └── package.json
+└── README.md
 
 yaml
 Copy
@@ -36,60 +49,73 @@ Edit
 
 ## ⚙️ Getting Started
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/note-taking-api.git
-cd note-taking-api
-2. Install Dependencies
+git clone https://github.com/Aarya2409/Notes_Taking-_app.git
+cd Notes_Taking-_app
+2️⃣ Setup Backend
 bash
 Copy
 Edit
+cd backend
 npm install
-3. Set Up Environment Variables
-Create a .env file in the root:
+Create a .env file:
 
-env
+ini
 Copy
 Edit
-PORT=5000
-Postres URL = 
-JWT_SECRET=your_jwt_secret_here
-4. Run the Server
+PORT=8000
+DATABASE_URL=postgres://<username>:<password>@localhost:5432/<yourdbname>
+JWT_SECRET=your_secret
+Run migrations (if using Sequelize CLI):
+
+bash
+Copy
+Edit
+npx sequelize db:migrate
+Start the server:
+
 bash
 Copy
 Edit
 npm run dev
-Server runs on http://localhost:5000
-
-📚 API Documentation
-Swagger docs available at:
-
+3️⃣ Setup Frontend
 bash
 Copy
 Edit
-http://localhost:5000/api-docs
-🧪 Example API Endpoints
-POST /api/auth/register – Register a new user
+cd ../frontend
+npm install
+npm run dev
+App runs at: http://localhost:5173
 
-POST /api/auth/login – Login and get token
+📚 API Docs (Swagger)
+Visit after backend runs:
+🔗 http://localhost:8000/api-docs
 
-GET /api/notes/ – Get all notes (protected)
+🔐 Auth Routes
+Method	Endpoint	Description
+POST	/api/auth/register	Register new user
+POST	/api/auth/login	Login user
+GET	/api/notes	Get all user notes
+POST	/api/notes	Create a note
+PUT	/api/notes/:id	Update a note by ID
+DELETE	/api/notes/:id	Delete a note by ID
 
-POST /api/notes/ – Create a new note (protected)
+Use cookie-based JWT for auth — no token in header required
 
-Use the Authorization: Bearer <token> header for protected routes.
+🛠️ Tech Stack
+Frontend: React + Vite
 
-🛡️ Tech Stack
-Node.js + Express
+Backend: Express + Node.js
 
-MongoDB + Mongoose
+Database: PostgreSQL via Sequelize
 
-JWT for authentication
+Auth: JWT (stored in HTTP-only cookie)
 
-Swagger for API docs
+Docs: Swagger UI
 
 🙌 Author
-Made with ❤️ by Arya2409
+Made with ❤️ by @Aarya2409
+Star ⭐ and Fork 🍴 if you like it!
 
-Feel free to fork, star, or contribute!
